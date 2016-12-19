@@ -5,12 +5,12 @@ namespace common\models\search;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Category;
+use common\models\Product;
 
 /**
- * CategorySearch represents the model behind the search form about `common\models\Category`.
+ * ProductSearch represents the model behind the search form about `common\models\Product`.
  */
-class CategorySearch extends Category
+class ProductSearch extends Product
 {
     /**
      * @inheritdoc
@@ -18,8 +18,9 @@ class CategorySearch extends Category
     public function rules()
     {
         return [
-            [['id', 'parent_id'], 'integer'],
-            [['name', 'keywords', 'description'], 'safe'],
+            [['id', 'category_id'], 'integer'],
+            [['name', 'content', 'keywords', 'description', 'img', 'hit', 'new', 'sale'], 'safe'],
+            [['price'], 'number'],
         ];
     }
 
@@ -41,7 +42,7 @@ class CategorySearch extends Category
      */
     public function search($params)
     {
-        $query = Category::find()->with('category');
+        $query = Product::find();
 
         // add conditions that should always apply here
 
@@ -60,12 +61,18 @@ class CategorySearch extends Category
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'parent_id' => $this->parent_id,
+            'category_id' => $this->category_id,
+            'price' => $this->price,
         ]);
 
         $query->andFilterWhere(['like', 'name', $this->name])
+            ->andFilterWhere(['like', 'content', $this->content])
             ->andFilterWhere(['like', 'keywords', $this->keywords])
-            ->andFilterWhere(['like', 'description', $this->description]);
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'img', $this->img])
+            ->andFilterWhere(['like', 'hit', $this->hit])
+            ->andFilterWhere(['like', 'new', $this->new])
+            ->andFilterWhere(['like', 'sale', $this->sale]);
 
         return $dataProvider;
     }

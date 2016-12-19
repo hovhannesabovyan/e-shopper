@@ -4,19 +4,19 @@ use yii\helpers\Html;
 use yii\grid\GridView;
 
 /* @var $this yii\web\View */
-/* @var $searchModel common\models\search\CategorySearch */
+/* @var $searchModel common\models\search\ProductSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Categories';
+$this->title = 'Products';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="category-index">
+<div class="product-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 
     <p>
-        <?= Html::a('Create Category', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Create Product', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
@@ -25,15 +25,16 @@ $this->params['breadcrumbs'][] = $this->title;
             ['class' => 'yii\grid\SerialColumn'],
 
             'id',
-            [
-                'attribute' => 'parent_id',
-                'value' => function ($data) {
-                    return $data->category['name'] ? $data->category['name'] : 'Самостоятельная категория';
-                }
-            ],
+            'category_id',
             'name',
-            'keywords',
-            'description',
+            'content:ntext',
+            'price',
+            // 'keywords',
+            // 'description',
+            // 'img',
+            // 'hit',
+            // 'new',
+            // 'sale',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
