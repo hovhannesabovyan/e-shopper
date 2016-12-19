@@ -28,6 +28,12 @@ class Category extends \yii\db\ActiveRecord
         return $this->hasMany(Product::className(), ['category_id' => 'id']);
     }
 
+
+    public function getCategory()
+    {
+        return $this->hasOne(Category::className(), ['id' => 'parent_id']);
+    }
+
     /**
      * @inheritdoc
      */
@@ -46,11 +52,11 @@ class Category extends \yii\db\ActiveRecord
     public function attributeLabels()
     {
         return [
-            'id' => 'ID',
-            'parent_id' => 'Parent ID',
-            'name' => 'Name',
-            'keywords' => 'Keywords',
-            'description' => 'Description',
+            'id' => '№ категории',
+            'parent_id' => 'Родительская категория',
+            'name' => 'Название',
+            'keywords' => 'Ключевые слова',
+            'description' => 'Мета-описание',
         ];
     }
 
