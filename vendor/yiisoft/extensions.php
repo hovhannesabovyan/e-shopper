@@ -102,4 +102,13 @@ return array (
       '@mihaildev/elfinder' => $vendorDir . '/mihaildev/yii2-elfinder',
     ),
   ),
+  'costa-rico/yii2-images' => 
+  array (
+    'name' => 'costa-rico/yii2-images',
+    'version' => '9999999-dev',
+    'alias' => 
+    array (
+      '@rico/yii2images' => $vendorDir . '/costa-rico/yii2-images',
+    ),
+  ),
 );

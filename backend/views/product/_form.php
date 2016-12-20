@@ -33,13 +33,17 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     ?>
 
-    <?= $form->field($model, 'price')->textInput() ?>
+    <?= $form->field($model, 'price')->textInput(
+        [
+            'options' => ['enctype' => 'multipart/form-data']
+        ]
+    ) ?>
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'img')->textInput(['maxlength' => true]) ?>
+    <?= $form->field($model, 'image')->fileInput() ?>
 
     <?= $form->field($model, 'hit')->checkbox(['0', '1',]) ?>
 

@@ -3558,5 +3558,112 @@
             "filemanager",
             "yii"
         ]
+    },
+    {
+        "name": "abeautifulsite/simpleimage",
+        "version": "2.6.0",
+        "version_normalized": "2.6.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/claviska/SimpleImage.git",
+            "reference": "a8fb6f68d12f32e3394a2784c3a8c500bc24cdec"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/claviska/SimpleImage/zipball/a8fb6f68d12f32e3394a2784c3a8c500bc24cdec",
+            "reference": "a8fb6f68d12f32e3394a2784c3a8c500bc24cdec",
+            "shasum": ""
+        },
+        "require": {
+            "ext-gd": "*",
+            "php": ">=5.3.0"
+        },
+        "time": "2015-10-22 19:13:41",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.5-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "abeautifulsite": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Nazar Mokrynskyi",
+                "email": "nazar@mokrynskyi.com",
+                "homepage": "http://cleverstyle.org/",
+                "role": "Developer"
+            },
+            {
+                "name": "Cory LaViska",
+                "homepage": "http://www.abeautifulsite.net/",
+                "role": "Developer"
+            }
+        ],
+        "description": "A PHP class that simplifies working with images"
+    },
+    {
+        "name": "costa-rico/yii2-images",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/CostaRico/yii2-images.git",
+            "reference": "9042afe28ff3c00ac23a9f78edfb3eee7bbfde99"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/CostaRico/yii2-images/zipball/9042afe28ff3c00ac23a9f78edfb3eee7bbfde99",
+            "reference": "9042afe28ff3c00ac23a9f78edfb3eee7bbfde99",
+            "shasum": ""
+        },
+        "require": {
+            "abeautifulsite/simpleimage": "*",
+            "yiisoft/yii2": "*"
+        },
+        "require-dev": {
+            "codeception/specify": "*",
+            "codeception/verify": "*",
+            "mikey179/vfsstream": "1.3.*@dev",
+            "yiisoft/yii2-codeception": "*"
+        },
+        "suggest": {
+            "ext-imagick": ""
+        },
+        "time": "2016-11-07 12:10:17",
+        "type": "yii2-extension",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "rico\\yii2images\\": ""
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Rob Rhyne",
+                "email": "rob.rhyne@gmail.com"
+            }
+        ],
+        "description": "yii2 images module for storing images",
+        "keywords": [
+            "Costa Rico",
+            "images",
+            "images store",
+            "store",
+            "yii2",
+            "yii2-images"
+        ]
     }
 ]
