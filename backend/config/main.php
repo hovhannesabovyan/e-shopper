@@ -13,6 +13,20 @@ return [
     'controllerNamespace' => 'backend\controllers',
     'bootstrap' => ['log'],
     'modules' => [],
+
+
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\PathController',
+            'access' => ['@'],
+            'root' => [
+                'baseUrl'=>'/web',
+                //'basePath'=>'/webroot',
+                'path' => 'upload/global',
+                'name' => 'Global'
+            ],
+        ]
+    ],
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-backend',
@@ -35,6 +49,7 @@ return [
                 ],
             ],
         ],
+
         'errorHandler' => [
             'errorAction' => 'site/error',
         ],

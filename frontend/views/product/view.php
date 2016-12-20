@@ -74,7 +74,13 @@ use yii\helpers\Url;
                 <a href="">
                     <img src="/images/product-details/share.png" class="share img-responsive" alt=""/>
                 </a>
+                <hr>
+                <span>
+                    <?=$product['content']?>
+                </span>
+
             </div>
+
             <!--/product-information-->
         </div>
     </div>

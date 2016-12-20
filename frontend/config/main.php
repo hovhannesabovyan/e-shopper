@@ -14,6 +14,21 @@ return [
     'basePath' => dirname(__DIR__),
     'bootstrap' => ['log'],
     'controllerNamespace' => 'frontend\controllers',
+
+
+    'controllerMap' => [
+        'elfinder' => [
+            'class' => 'mihaildev\elfinder\PathController',
+            'access' => ['@'],
+            'root' => [
+                'path' => 'files',
+                'name' => 'Files'
+            ],
+        ]
+    ],
+
+
+
     'components' => [
         'request' => [
             'csrfParam' => '_csrf-frontend',
@@ -69,11 +84,11 @@ return [
                 'search' => 'category/search',
 
                 ['pattern' => 'error',
-                'route' => 'message/error',
+                    'route' => 'message/error',
+                ],
             ],
         ],
+        /*End URL Manager*/
     ],
-    /*End URL Manager*/
-],
     'params' => $params,
 ];

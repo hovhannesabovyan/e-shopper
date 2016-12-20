@@ -25,6 +25,9 @@ RewriteRule ^js/(.*)$ frontend/web/js/$1 [L]
 RewriteRule ^images/(.*)$ frontend/web/images/$1 [L]
 RewriteRule ^fonts/(.*)$ frontend/web/fonts/$1 [L]
 RewriteRule ^uploads/(.*)$ frontend/web/uploads/$1 [L]
+RewriteRule ^upload/(.*)$ frontend/web/upload/$1 [L]
+RewriteRule ^upload/(.*)$ backend/web/upload/$1 [L]
+
 
 RewriteCond %{REQUEST_URI} !^/(frontend|backend)/web/(assets|css)/
 RewriteCond %{REQUEST_URI} !index.php
