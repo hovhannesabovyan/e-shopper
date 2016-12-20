@@ -4,32 +4,47 @@ use yii\helpers\Url;
 
 ?>
 
+<?php
+
+$mainImg = $product->getImage();
+
+$gallery = $product->getImages();
+
+?>
+
 <div class="col-sm-9 padding-right">
     <div class="product-details"><!--product-details-->
         <div class="col-sm-5">
             <div class="view-product">
-                <?= Html::img("@web/images/products/{$product['img']}") ?>
+                <?php $img = $model->getImage(); ?>
+
+                <?= Html::img($mainImg->getUrl()) ?>
+
                 <h3>ZOOM</h3>
             </div>
             <div id="similar-product" class="carousel slide" data-ride="carousel">
 
                 <!-- Wrapper for slides -->
                 <div class="carousel-inner">
-                    <div class="item active">
-                        <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
-                        <a href=""><img src="/images/product-details/similar2.jpg" alt=""></a>
-                        <a href=""><img src="/images/product-details/similar3.jpg" alt=""></a>
-                    </div>
-                    <div class="item">
-                        <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
-                        <a href=""><img src="/images/product-details/similar2.jpg" alt=""></a>
-                        <a href=""><img src="/images/product-details/similar3.jpg" alt=""></a>
-                    </div>
-                    <div class="item">
-                        <a href=""><img src="/images/product-details/similar1.jpg" alt=""></a>
-                        <a href=""><img src="/images/product-details/similar2.jpg" alt=""></a>
-                        <a href=""><img src="/images/product-details/similar3.jpg" alt=""></a>
-                    </div>
+
+
+                    <?php
+                    $count = count($gallery);
+                    $i = 0;
+
+                    foreach ($gallery as $img) : ?>
+                        <?php if ($i % 3 == 0): ?>
+                            <div class="item <?php if ($i == 0) echo "active" ?>">
+                        <?php endif; ?>
+                        <a href="">
+                            <?= Html::img($img->getUrl('84x85')) ?>
+                        </a>
+                        <?php $i++;
+                        if ($i % 3 == 0 || $i == $count): ?>
+                            </div>
+                        <?php endif; ?>
+                    <?php endforeach; ?>
+
                 </div>
 
                 <!-- Controls -->
@@ -61,7 +76,7 @@ use yii\helpers\Url;
                     <label>Quantity:</label>
                     <input type="text" value="1" id="qty">
                     <a
-                       data-id="<?= $product->id ?>" class="btn add-to-cart btn-fefault  cart">
+                            data-id="<?= $product->id ?>" class="btn add-to-cart btn-fefault  cart">
                                         <i class="fa fa-shopping-cart"></i>
                                         Add to cart
                                     </a>
@@ -76,7 +91,7 @@ use yii\helpers\Url;
                 </a>
                 <hr>
                 <span>
-                    <?=$product['content']?>
+                    <?= $product['content'] ?>
                 </span>
 
             </div>

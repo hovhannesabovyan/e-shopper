@@ -13,7 +13,11 @@ mihaildev\elfinder\Assets::noConflict($this);
 
 <div class="product-form">
 
-    <?php $form = ActiveForm::begin(); ?>
+    <?php $form = ActiveForm::begin(
+        [
+            'options' => ['enctype' => 'multipart/form-data']
+        ]
+    ); ?>
 
     <div class="form-group field-product-category_id has-success">
         <label class="control-label" for="product-category_id">Родительская категория</label>
@@ -33,17 +37,17 @@ mihaildev\elfinder\Assets::noConflict($this);
 
     ?>
 
-    <?= $form->field($model, 'price')->textInput(
-        [
-            'options' => ['enctype' => 'multipart/form-data']
-        ]
-    ) ?>
+    <?= $form->field($model, 'price')->textInput() ?>
 
     <?= $form->field($model, 'keywords')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'image')->fileInput() ?>
+    <?= $form->field($model, 'gallery[]')->fileInput([
+        'multiple' => true,
+        'accept' => 'image/*'
+    ]) ?>
 
     <?= $form->field($model, 'hit')->checkbox(['0', '1',]) ?>
 

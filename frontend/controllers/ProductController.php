@@ -19,13 +19,15 @@ class ProductController extends BaseController
 
     public function actionView($id)
     {
+        $model = new Product();
         $product = Product::findOne($id);
-        if (empty($product)){
-            throw new HttpException(404,'your message name');
+        if (empty($product)) {
+            throw new HttpException(404, 'your message name');
         }
         $this->setMeta('E-Shopper | ' . $product->name, $product->keywords, $product->description);
         return $this->render('view', [
-            'product' => $product
+            'product' => $product,
+            'model' => $model
         ]);
     }
 }
